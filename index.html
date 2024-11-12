@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mood Music Player</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="mood-buttons">
+    <button data-mood="happy">Happy</button>
+    <button data-mood="sad">Sad</button>
+    <button data-mood="romantic">Romantic</button>
+    <button data-mood="excited">Excited</button>
+    <button data-mood="relaxed">Relaxed</button>
+    <button data-mood="energetic">Energetic</button>
+    <button data-mood="nostalgic">Nostalgic</button>
+    <button data-mood="chill">Chill</button>
+    <button data-mood="motivated">Motivated</button>
+    <button data-mood="surprised">Surprised</button>
+  </div>
+
+  <div id="player-modal" class="modal">
+    <video id="video-player" autoplay muted loop></video>
+    <audio id="audio-player" autoplay></audio>
+    <button id="close-button" onclick="closeModal()">Close</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
