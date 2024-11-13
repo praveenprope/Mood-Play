@@ -1,77 +1,172 @@
 /* Basic Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #222;
-    color: #fff;
-    font-family: Arial, sans-serif;
-  }
-  
-  /* Mood Buttons */
-  .mood-buttons {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-    max-width: 400px;
-  }
-  
-  .mood-buttons button {
-    padding: 15px;
-    font-size: 1.2em;
-    color: #fff;
-    background-color: #333;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  
-  .mood-buttons button:hover {
-    background-color: #555;
-  }
-  
-  /* Modal */
-  .modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.8);
-    align-items: center;
-    justify-content: center;
-  }
-  
-  #video-player {
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-  }
-  
-  #close-button {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    padding: 10px 20px;
-    font-size: 1em;
-    color: #fff;
-    background-color: #ff0000;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  
-  #close-button:hover {
-    background-color: #cc0000;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 100vh;
+  background: linear-gradient(45deg, #ff6ec7, #4e54c8, #8f94fb);
+  color: #fff;
+  font-family: 'Press Start 2P', cursive;
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+  overflow-y: auto; /* Allow vertical scrolling */
+}
+
+/* Animation for Gradient Background */
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* App Header */
+.app-header {
+  width: 100%;
+  padding: 20px 0;
+  background: rgba(0, 0, 0, 0.7);
+  color: #ffcc00;
+  text-align: center;
+  font-size: 1.6rem;
+  text-shadow: 2px 2px 5px #ff6ec7;
+  border-bottom: 3px solid #ffcc00;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  padding-bottom: 80px; /* To ensure some space for footer */
+}
+
+/* Mood Buttons */
+.mood-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  max-width: 400px;
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.mood-buttons button {
+  padding: 15px;
+  font-size: 1.3em;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid #ffcc00;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 1px 1px 3px #00d4ff;
+  box-shadow: 0 0 10px #ffcc00, 0 0 20px #ff6ec7;
+}
+
+.mood-buttons button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ff6ec7;
+  border-color: #4e54c8;
+  box-shadow: 0 0 25px #ff6ec7, 0 0 40px #4e54c8;
+  transform: scale(1.1);
+}
+
+.mood-buttons button:active {
+  transform: scale(1);
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.75);
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  overflow: hidden;
+}
+
+#video-player {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+/* Song Info Display */
+.song-info {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #ffcc00;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px 20px;
+  font-size: 1.2em;
+  border-radius: 5px;
+  border: 2px solid #00d4ff;
+  text-shadow: 1px 1px 5px #f72585;
+}
+
+/* Close Button */
+#close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  font-size: 1em;
+  color: #ffcc00;
+  background-color: #ff0054;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#close-button:hover {
+  background-color: #ff2266;
+}
+
+/* Footer */
+.app-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 20px;
+  background: rgba(0, 0, 0, 0.8);
+  border-top: 3px solid #ffcc00;
+  color: #ffcc00;
+  font-size: 1.1rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 20;
+}
+
+.app-footer button {
+  padding: 10px 20px;
+  font-size: 1.1em;
+  color: #ffcc00;
+  background: #333;
+  border: 2px solid #ffcc00;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  text-shadow: 1px 1px 5px #00d4ff;
+}
+
+.app-footer button:hover {
+  background: #ffcc00;
+  color: #222;
+}
